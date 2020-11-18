@@ -155,6 +155,9 @@ namespace leatherman { namespace logging {
      */
     void setup_logging(std::ostream &dst, std::string locale = "", std::string domain = PROJECT_NAME, bool use_locale = true);
 
+    // FIXME add doc
+    void setup_eventlog_logging(std::string application);
+
     /**
      * Sets the current log level.
      * @param level The new current log level to set.
@@ -260,5 +263,10 @@ namespace leatherman { namespace logging {
      * @return True if terminal colors are supported for the specified stream on this platform, else false.
      */
     bool color_supported(std::ostream &dst);
+
+    // FIXME the following may be private
+    void log_eventlog(log_level level, std::string const& message);
+    void enable_event_log(void);
+    void disable_event_log(void);
 
 }}  // namespace leatherman::logging
